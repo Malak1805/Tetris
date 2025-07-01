@@ -44,6 +44,8 @@ _- Pick a new random piece as the current piece_
 _- If the new piece immediately collides:_
 -> GAME OVER
 
+![image](tertisWireframe.PNG)
+
 ### **_Credits_**
 
 _Done by Malak Jasim_
