@@ -1,0 +1,49 @@
+body {
+  background-color: #f5f5dc;
+}
+
+h1 {
+  text-align: center;
+}
+
+.container-1 {
+  width: 800px;
+  height: 900px;
+  margin: auto;
+  background-color: #c8cfd2;
+  text-align: center;
+  box-shadow: 3px 6px darkgray;
+}
+
+.container-2 {
+  margin: auto;
+  width: 500px;
+  height: 700px;
+  background-color: azure;
+  float: center;
+  box-shadow: 3px 6px grey;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  place-items: center;
+  height: 100vh;
+  padding: 10px;
+}
+
+.tetris-box {
+  display: grid;
+  grid-template-columns: repeat(4fr 1fr);
+  grid-gap: 5px;
+  background-color: #eee;
+  padding: 10px;
+}
+
+.piece {
+  width: 50px;
+  height: 50px;
+  background-color: #777;
+  border-radius: 10px;
+}
