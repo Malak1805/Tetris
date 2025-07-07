@@ -341,7 +341,7 @@ function handleKeyPress(event) {
           piecePosY,
           pieceRotation
         )
-      ){
+      ) {
         piecePosX++
       }
       break
@@ -369,3 +369,23 @@ function handleKeyPress(event) {
           piecePosY + 1,
           pieceRotation
         )
+      ) {
+        piecePosY++
+      }
+      break
+    case 32: // space (drop piece)
+      dropCurrentPiece()
+      break
+    case 80: // P key (pause)
+      if (isGamePaused) {
+        isGamePaused = false
+        pauseOverlay.classList.remove('show')
+        startGameLoop()
+      } else {
+        isGamePaused = true
+        pauseOverlay.classList.add('show')
+      }
+      break
+  }
+  canTick = true
+}
