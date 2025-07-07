@@ -293,3 +293,21 @@ function canPlacePiece(piece, posX, posY, rotation) {
   }
   return true
 }
+
+async function resetGame() {
+  if (isGameOver) {
+    playerScore = 0
+    scoreDisplay.textContent = `SCORE: ${playerScore}`
+    currentSpeed = INITIAL_SPEED
+    gameOverOverlay.classList.remove('show')
+    board = []
+    isGameOver = false
+    currentPieceIndex = Math.floor(Math.random() * 7)
+    nextPieceIndex = Math.floor(Math.random() * 7)
+    renderNextPiece()
+    playArea.innerHTML = ''
+    createBoardCells()
+    initializeBoard()
+    startGameLoop()
+  }
+}
