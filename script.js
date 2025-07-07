@@ -134,3 +134,30 @@ await delay(250)
               }
             }
           })
+
+          completedLines = []
+        }
+
+        // Set next piece
+        currentPieceIndex = nextPieceIndex
+        nextPieceIndex = Math.floor(Math.random() * 7)
+        piecePosX = Math.floor(GRID_WIDTH / 2)
+        piecePosY = 0
+        pieceRotation = 0
+        renderNextPiece()
+
+        if (
+          !canPlacePiece(currentPieceIndex, piecePosX, piecePosY, pieceRotation)
+        ) {
+          isGameOver = true
+          renderCurrentPiece()
+        }
+      }
+    }
+
+    // Speed up every 10 lines
+    if (totalLinesCleared > 0 && totalLinesCleared % 10 === 0) {
+      currentSpeed -= 3
+      if (currentSpeed <= 0) currentSpeed = 1
+      totalLinesCleared = 0
+    }
