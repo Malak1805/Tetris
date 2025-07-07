@@ -222,3 +222,23 @@ function createBoardCells() {
   scoreDisplay.textContent = `SCORE: ${playerScore}`
   renderNextPiece()
 }
+
+function renderBoard() {
+  for (let x = 0; x < GRID_WIDTH; x++) {
+    for (let y = 0; y < GRID_HEIGHT; y++) {
+      let cell = playArea.children[y * GRID_WIDTH + x]
+
+      if (x === 0 || x === GRID_WIDTH - 1 || y === GRID_HEIGHT - 1) {
+        cell.style.width = '0px'
+        cell.style.height = '0px'
+      } else {
+        cell.style.backgroundColor = colors[board[y * GRID_WIDTH + x]]
+        if (board[y * GRID_WIDTH + x] !== 7) {
+          cell.classList.add('piece')
+        } else {
+          cell.classList.remove('piece')
+        }
+      }
+    }
+  }
+}
