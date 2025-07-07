@@ -341,4 +341,31 @@ function handleKeyPress(event) {
           piecePosY,
           pieceRotation
         )
-      )
+      ){
+        piecePosX++
+      }
+      break
+    case 38: // up arrow (rotate)
+      if (
+        !keyIsHeld &&
+        !canTick &&
+        canPlacePiece(
+          currentPieceIndex,
+          piecePosX,
+          piecePosY,
+          pieceRotation + 1
+        )
+      ) {
+        pieceRotation++
+        keyIsHeld = true
+      }
+      break
+    case 40: // down arrow
+      if (
+        !canTick &&
+        canPlacePiece(
+          currentPieceIndex,
+          piecePosX,
+          piecePosY + 1,
+          pieceRotation
+        )
