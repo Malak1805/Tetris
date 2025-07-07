@@ -242,3 +242,16 @@ function renderBoard() {
     }
   }
 }
+
+function renderCurrentPiece() {
+  for (let px = 0; px < 4; px++) {
+    for (let py = 0; py < 4; py++) {
+      if (pieces[currentPieceIndex][rotate(px, py, pieceRotation)] === 'X') {
+        let cell =
+          playArea.children[(piecePosY + py) * GRID_WIDTH + (piecePosX + px)]
+        cell.style.backgroundColor = colors[currentPieceIndex]
+        cell.classList.add('piece')
+      }
+    }
+  }
+}
