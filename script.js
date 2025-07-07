@@ -44,3 +44,26 @@ pieces[3] = '..X..XX..X......'
 pieces[4] = '.X...XX...X.....'
 pieces[5] = '.X...X...XX.....'
 pieces[6] = '..X...X..XX.....'
+
+initializeBoard()
+createBoardCells()
+startGameLoop()
+
+async function startGameLoop() {
+  if (!isGameOver && !isGamePaused) {
+    renderBoard()
+    renderCurrentPiece()
+    await delay(50)
+    canTick = false
+    tickCounter++
+
+    if (tickCounter === currentSpeed) {
+      tickCounter = 0
+
+      if (
+        canPlacePiece(
+          currentPieceIndex,
+          piecePosX,
+          piecePosY + 1,
+          pieceRotation
+        )
