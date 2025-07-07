@@ -188,3 +188,37 @@ function initializeBoard() {
     }
   }
 }
+
+function createBoardCells() {
+  const cellSize = `${95 / GRID_HEIGHT}vmin`
+  playArea.style.gridTemplateColumns = `0px repeat(${
+    GRID_WIDTH - 2
+  }, ${cellSize}) 0px`
+  playArea.style.gridTemplateRows = `repeat(${
+    GRID_HEIGHT - 1
+  }, ${cellSize}) 0px`
+
+  for (let x = 0; x < GRID_WIDTH; x++) {
+    for (let y = 0; y < GRID_HEIGHT; y++) {
+      let cell = document.createElement('div')
+      cell.style.width = cell.style.height = cellSize
+      playArea.appendChild(cell)
+    }
+  }
+
+  nextPieceDisplay.style.gridTemplateColumns = `repeat(4, ${
+    50 / GRID_HEIGHT
+  }vmin)`
+  nextPieceDisplay.style.gridTemplateRows = `repeat(4, ${50 / GRID_HEIGHT}vmin)`
+
+  for (let x = 0; x < 4; x++) {
+    for (let y = 0; y < 4; y++) {
+      let cell = document.createElement('div')
+      cell.style.width = cell.style.height = `${50 / GRID_HEIGHT}vmin`
+      nextPieceDisplay.appendChild(cell)
+    }
+  }
+
+  scoreDisplay.textContent = `SCORE: ${playerScore}`
+  renderNextPiece()
+}
