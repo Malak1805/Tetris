@@ -179,3 +179,12 @@ function rotate(x, y, rotation) {
       return 3 - y + x * 4
   }
 }
+
+function initializeBoard() {
+  for (let x = 0; x < GRID_WIDTH; x++) {
+    for (let y = 0; y < GRID_HEIGHT; y++) {
+      board[y * GRID_WIDTH + x] =
+        x === 0 || x === GRID_WIDTH - 1 || y === GRID_HEIGHT - 1 ? 8 : 7
+    }
+  }
+}
