@@ -255,3 +255,15 @@ function renderCurrentPiece() {
     }
   }
 }
+
+function renderNextPiece() {
+  for (let px = 0; px < 4; px++) {
+    for (let py = 0; py < 4; py++) {
+      let cell = nextPieceDisplay.children[py * 4 + px]
+      cell.style.backgroundColor = 'transparent'
+      if (pieces[nextPieceIndex][4 * py + px] === 'X') {
+        cell.style.backgroundColor = colors[nextPieceIndex]
+      }
+    }
+  }
+}
