@@ -389,3 +389,7 @@ function handleKeyPress(event) {
   }
   canTick = true
 }
+
+window.addEventListener('keydown', handleKeyPress)
+window.addEventListener('keyup', () => (keyIsHeld = false))
+window.addEventListener('click', resetGame)
