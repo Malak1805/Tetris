@@ -67,3 +67,70 @@ async function startGameLoop() {
           piecePosY + 1,
           pieceRotation
         )
+
+        ) {
+        piecePosY++
+      } else {
+        // Fix piece on board
+        for (let px = 0; px < 4; px++) {
+          for (let py = 0; py < 4; py++) {
+            if (
+              pieces[currentPieceIndex][rotate(px, py, pieceRotation)] === 'X'
+            ) {
+              board[(piecePosY + py) * GRID_WIDTH + (piecePosX + px)] =
+                currentPieceIndex
+            }
+          }
+        }
+
+        playerScore += 5
+        scoreDisplay.textContent = `SCORE: ${playerScore}`
+
+        // Check for completed lines
+        for (let py = 0; py < 4; py++) {
+          if (piecePosY + py < GRID_HEIGHT - 1) {
+            let lineComplete = true
+            for (let px = 1; px < GRID_WIDTH - 1; px++) {
+              lineComplete &= board[(piecePosY + py) * GRID_WIDTH + px] !== 7
+            }
+            if (lineComplete) {
+              for (let px = 1; px < GRID_WIDTH - 1; px++) {
+                board[(piecePosY + py) * GRID_WIDTH + px] = 9
+                playArea.children[
+                  (piecePosY + py) * GRID_WIDTH + px
+                ].classList.add('remove')
+              }
+              completedLines.push(piecePosY + py)
+              totalLinesCleared++
+            }
+          }
+        }
+
+ if (completedLines.length) {
+          let bonus = 0.2 * completedLines.length
+          playerScore += completedLines.length * 50 * (1 + bonus)
+          scoreDisplay.textContent = `SCORE: ${playerScore}`
+          renderBoard()
+          await delay(250)
+
+          // Remove animation class
+          completedLines.forEach((line) => {
+            for (let px = 1; px < GRID_WIDTH - 1; px++) {
+              for (let py = line; py > 0; py--) {
+                playArea.children[py * GRID_WIDTH + px].classList.remove(
+                  'remove'
+                )
+              }
+            }
+          })
+await delay(250)
+
+ // Shift lines down
+          completedLines.forEach((line) => {
+            for (let px = 1; px < GRID_WIDTH - 1; px++) {
+              for (let py = line; py > 0; py--) {
+                board[py * GRID_WIDTH + px] = board[(py - 1) * GRID_WIDTH + px]
+                board[px] = 7
+              }
+            }
+          })
