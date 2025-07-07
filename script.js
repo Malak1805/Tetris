@@ -315,3 +315,30 @@ async function resetGame() {
 function delay(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms))
 }
+
+function handleKeyPress(event) {
+  const key = event.keyCode
+  switch (key) {
+    case 37: // left arrow
+      if (
+        !canTick &&
+        canPlacePiece(
+          currentPieceIndex,
+          piecePosX - 1,
+          piecePosY,
+          pieceRotation
+        )
+      ) {
+        piecePosX--
+      }
+      break
+    case 39: // right arrow
+      if (
+        !canTick &&
+        canPlacePiece(
+          currentPieceIndex,
+          piecePosX + 1,
+          piecePosY,
+          pieceRotation
+        )
+      )
