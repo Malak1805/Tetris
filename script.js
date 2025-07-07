@@ -67,8 +67,7 @@ async function startGameLoop() {
           piecePosY + 1,
           pieceRotation
         )
-
-        ) {
+      ) {
         piecePosY++
       } else {
         // Fix piece on board
@@ -106,7 +105,7 @@ async function startGameLoop() {
           }
         }
 
- if (completedLines.length) {
+        if (completedLines.length) {
           let bonus = 0.2 * completedLines.length
           playerScore += completedLines.length * 50 * (1 + bonus)
           scoreDisplay.textContent = `SCORE: ${playerScore}`
@@ -123,9 +122,9 @@ async function startGameLoop() {
               }
             }
           })
-await delay(250)
+          await delay(250)
 
- // Shift lines down
+          // Shift lines down
           completedLines.forEach((line) => {
             for (let px = 1; px < GRID_WIDTH - 1; px++) {
               for (let py = line; py > 0; py--) {
@@ -161,3 +160,22 @@ await delay(250)
       if (currentSpeed <= 0) currentSpeed = 1
       totalLinesCleared = 0
     }
+
+    startGameLoop()
+  } else if (isGameOver) {
+    gameOverOverlay.classList.add('show')
+  }
+}
+
+function rotate(x, y, rotation) {
+  switch (rotation % 4) {
+    case 0:
+      return y * 4 + x
+    case 1:
+      return 12 + y - x * 4
+    case 2:
+      return 15 - y * 4 - x
+    case 3:
+      return 3 - y + x * 4
+  }
+}
