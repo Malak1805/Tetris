@@ -267,3 +267,29 @@ function renderNextPiece() {
     }
   }
 }
+
+function dropCurrentPiece() {
+  while (
+    canPlacePiece(currentPieceIndex, piecePosX, piecePosY + 1, pieceRotation)
+  ) {
+    piecePosY++
+  }
+}
+
+function canPlacePiece(piece, posX, posY, rotation) {
+  for (let px = 0; px < 4; px++) {
+    for (let py = 0; py < 4; py++) {
+      const pieceIndex = rotate(px, py, rotation)
+      const boardIndex = (posY + py) * GRID_WIDTH + (posX + px)
+
+      if (posX + px >= 0 && posX + px < GRID_WIDTH) {
+        if (posY + py >= 0 && posY + py < GRID_HEIGHT) {
+          if (pieces[piece][pieceIndex] === 'X' && board[boardIndex] !== 7) {
+            return false
+          }
+        }
+      }
+    }
+  }
+  return true
+}
