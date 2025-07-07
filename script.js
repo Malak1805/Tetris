@@ -21,3 +21,26 @@ let colors = [
   'rgb(150, 150, 150)',
   'rgb(0, 0, 0)'
 ]
+
+let currentPieceIndex = Math.floor(Math.random() * 7)
+let nextPieceIndex = Math.floor(Math.random() * 7)
+let piecePosX = Math.floor(GRID_WIDTH / 2)
+let piecePosY = 0
+let pieceRotation = 0
+let keyIsHeld = false
+let canTick = false
+let currentSpeed = INITIAL_SPEED
+let tickCounter = 0
+let completedLines = []
+let totalLinesCleared = 0
+let isGameOver = false
+let playerScore = 0
+let isGamePaused = false
+
+pieces[0] = '..X...X...X...X.'
+pieces[1] = '..X..XX...X.....'
+pieces[2] = '.....XX..XX.....'
+pieces[3] = '..X..XX..X......'
+pieces[4] = '.X...XX...X.....'
+pieces[5] = '.X...X...XX.....'
+pieces[6] = '..X...X..XX.....'
