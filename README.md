@@ -4,11 +4,29 @@
 
 ### **_By: Malak Jasim_**
 
-[Website](www.)
+## 🌐 Live Demo
+
+[Play the Tetris Game](https://tetris-tool.surge.sh/)
+
+## Project README
+
+[View README](https://github.com/Malak1805/Tetris/blob/main/README.md)
 
 ### **_Description_**
 
-_The project goal is to evaluate and showcase my skills in building a game browser website, the game I have chosen is the Tetris game, a block game where the player has to fit the blocks into each other in puzzle pattern to win, I have chosen this idea because it seemed unique to me, and a challenge as well, it will not be easy but I will try my best._
+The project goal is to evaluate and showcase my skills in building a game browser website, the game I have chosen is the Tetris game, a block game where the player has to fit the blocks into each other in puzzle pattern to win, I have chosen this idea because it seemed unique to me, and a challenge as well, it will not be easy but I will try my best.
+
+## 🛠️ Technologies Used 🛠️
+
+- HTML
+- CSS, (Grid + Flexbox)
+- JavaScript
+
+## Attributions
+
+- Tetris rotation logic inspired by traditional 4x4 matrix models
+- General game concepts and functions from [FreeCodeCamp Tetris Guide](https://www.freecodecamp.org/)
+- Color palette inspiration from [https://coolors.co/]
 
 ### **_How to get Started_**
 
@@ -43,6 +61,8 @@ _- Pick a new random piece as the current piece_
 
 _- If the new piece immediately collides:_
 -> GAME OVER
+
+## Wireframe
 
 ![image](tertisWireframe.PNG)
 
